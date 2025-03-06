@@ -1,0 +1,41 @@
+// console.log("Hello World!");
+// CREATE a new function "getComputerChoice"
+// The function randomly returns "rock", "paper" or "scissors"
+// CREATE a new function "getHumanChoice"
+// Inside "getHumanChoice" prompt for human input
+// MAKE "getHumanChoice" case-insensitive
+// RETURN human input
+
+// CREATE two new variables "humanScore" and "computerScore"
+
+// CREATE a new function "playRound"
+// DEFINE "humanChoice" and "computerChoice" as parameters for playRound
+// TAKE humanChoice and computerChoice as arguments
+//
+
+function getComputerChoice() {
+  let randomNumber = Math.floor(Math.random() * 3);
+  if (randomNumber === 0) {
+    return "ROCK";
+  } else if (randomNumber === 1) {
+    return "PAPER";
+  } else {
+    return "SCISSOR";
+  }
+}
+
+function getHumanChoice() {
+  let userChoice = prompt(
+    "what's your pick? ROCK, PAPER, SCISSOR",
+    ""
+  ).toUpperCase();
+  if (userChoice === "ROCK") {
+    return "ROCK";
+  } else if (userChoice === "PAPER") {
+    return "PAPER";
+  } else {
+    return "SCISSOR";
+  }
+}
+
+console.log(getHumanChoice());
