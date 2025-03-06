@@ -38,4 +38,29 @@ function getHumanChoice() {
   }
 }
 
-console.log(getHumanChoice());
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+  if ((humanChoice === "ROCK") & (computerChoice === "PAPER")) {
+    console.log(`Your OPP chose ${computerChoice}`);
+    console.log("YOU LOSE!");
+  } else if ((humanChoice === "PAPER") & (computerChoice === "SCISSOR")) {
+    console.log(`Your OPP chose ${computerChoice}`);
+    console.log("YOU LOSE!");
+  } else if ((humanChoice === "SCISSOR") & (computerChoice === "ROCK")) {
+    console.log(`Your OPP chose ${computerChoice}`);
+    console.log("YOU LOSE!");
+  } else if (humanChoice === computerChoice) {
+    console.log(`Your OPP chose ${computerChoice}`);
+    console.log("It's a DRAW!");
+  } else {
+    console.log(`Your OPP chose ${computerChoice}`);
+    console.log("YOU WIN!");
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
