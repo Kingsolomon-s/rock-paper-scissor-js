@@ -42,22 +42,28 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
+  console.log(`ROUND ${roundPlayed}: `);
   if ((humanChoice === "ROCK") & (computerChoice === "PAPER")) {
     console.log(`Your OPP chose ${computerChoice}`);
     console.log("YOU LOSE!");
+    computerScore++;
   } else if ((humanChoice === "PAPER") & (computerChoice === "SCISSOR")) {
     console.log(`Your OPP chose ${computerChoice}`);
     console.log("YOU LOSE!");
+    computerScore++;
   } else if ((humanChoice === "SCISSOR") & (computerChoice === "ROCK")) {
     console.log(`Your OPP chose ${computerChoice}`);
     console.log("YOU LOSE!");
+    computerScore++;
   } else if (humanChoice === computerChoice) {
     console.log(`Your OPP chose ${computerChoice}`);
     console.log("It's a DRAW!");
   } else {
     console.log(`Your OPP chose ${computerChoice}`);
     console.log("YOU WIN!");
+    humanScore++;
   }
+  showScore();
 }
 
 // const humanSelection = getHumanChoice();
@@ -65,8 +71,9 @@ function playRound(humanChoice, computerChoice) {
 
 // playRound(humanSelection, computerSelection);
 
+let roundPlayed = 1;
+
 function playGame() {
-  let roundPlayed = 1;
   while (roundPlayed <= 5) {
     playRound(getHumanChoice(), getComputerChoice());
     roundPlayed++;
@@ -74,3 +81,9 @@ function playGame() {
 }
 
 playGame();
+
+function showScore() {
+  let score;
+  score = `OPP score: ${computerScore}\nYour score: ${humanScore}`;
+  console.log(score);
+}
