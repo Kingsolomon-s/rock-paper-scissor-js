@@ -60,7 +60,17 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// const humanSelection = getHumanChoice();
+// const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+// playRound(humanSelection, computerSelection);
+
+function playGame() {
+  let roundPlayed = 1;
+  while (roundPlayed <= 5) {
+    playRound(getHumanChoice(), getComputerChoice());
+    roundPlayed++;
+  }
+}
+
+playGame();
