@@ -1,0 +1,153 @@
+@font-face {
+  font-family: "videotype";
+  src: url("./videotype.otf") format("opentype");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* outline: 2px solid red; */
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  color: #0d0d0d;
+  background-color: rgb(88, 88, 88);
+}
+
+.container {
+  max-width: 800px;
+  width: 600px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.infoContainer {
+  height: 135px;
+  margin-top: 100px;
+  /* border: 2px solid red; */
+  /* padding: 10px; */
+  /* text-align: center; */
+}
+
+.name {
+  display: flex;
+  font-family: "videotype";
+  font-size: 55px;
+  margin-bottom: 30px;
+}
+.name p:last-child {
+  text-align: end;
+}
+
+.name p {
+  flex: 1;
+}
+
+.scoreContainer .score {
+  display: flex;
+  font-family: "videotype";
+  font-size: 45px;
+  text-align: center;
+}
+
+.human,
+.computer {
+  flex: 1;
+}
+
+.human {
+  margin-right: 20px;
+}
+/* .computer {
+  text-align: center;
+} */
+
+.drawPara {
+  font-family: "videotype";
+  font-size: 45px;
+}
+
+.game {
+  height: 150px;
+  margin-top: 50px;
+  /* border: 2px solid yellow; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.choice {
+  font-family: "videotype";
+  font-size: 50px;
+  padding: 0 40px;
+  border: 3px solid #0d0d0d;
+  height: 90px;
+  line-height: 90px;
+  text-align: center;
+  border-radius: 15px;
+  background-color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.choice:hover {
+  background-color: #0d0d0d;
+  color: whitesmoke;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  transform: scale(0.95);
+  /* transition: transform 0.3s ease; */
+  cursor: pointer;
+}
+
+.final-result-container {
+  max-width: 600px;
+  width: 600px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.final-result {
+  font-family: "videotype";
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.reset-button {
+  max-width: 250px;
+  width: 250px;
+  font-size: 30px;
+  background-color: inherit;
+  color: inherit;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  border: 2px solid rgb(88, 88, 88);
+}
+
+.reset-button:hover {
+  background-color: #0d0d0d;
+  color: whitesmoke;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
+.draw-para {
+  margin-top: 30px;
+  text-align: center;
+  font-family: "videotype";
+  font-size: 25px;
+}
