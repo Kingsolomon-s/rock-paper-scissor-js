@@ -7,7 +7,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* outline: 2px solid red; */
 }
 
 body,
@@ -16,8 +15,9 @@ html {
 }
 
 body {
-  color: #0d0d0d;
-  background-color: rgb(88, 88, 88);
+  color: #2c2c2c;
+  background-color: #585858;
+  padding: 1px;
 }
 
 .container {
@@ -25,14 +25,54 @@ body {
   width: 600px;
   margin: 0 auto;
   padding: 0 30px;
+  display: none;
+}
+
+.lobby-container {
+  max-width: 800px;
+  width: 600px;
+  margin: 0 auto;
+  padding: 0 30px;
+  text-align: center;
+  margin-top: 100px;
+  font-family: "videotype";
+}
+
+.lobby-container h2 {
+  font-size: 35px;
+  margin-bottom: 40px;
+}
+
+.lobby-container p {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.lobby-container .play {
+  margin-top: 50px;
+  max-width: 250px;
+  width: 250px;
+  font-size: 30px;
+  background-color: inherit;
+  color: inherit;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  border: 2px solid rgb(88, 88, 88);
+}
+
+.lobby-container .play:hover {
+  background-color: #0d0d0d;
+  color: whitesmoke;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  transform: scale(0.95);
+  cursor: pointer;
 }
 
 .infoContainer {
   height: 135px;
-  margin-top: 100px;
-  /* border: 2px solid red; */
-  /* padding: 10px; */
-  /* text-align: center; */
+  margin-top: 65px;
 }
 
 .name {
@@ -62,11 +102,8 @@ body {
 }
 
 .human {
-  margin-right: 20px;
+  margin-right: 50px;
 }
-/* .computer {
-  text-align: center;
-} */
 
 .drawPara {
   font-family: "videotype";
@@ -76,7 +113,6 @@ body {
 .game {
   height: 150px;
   margin-top: 50px;
-  /* border: 2px solid yellow; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -101,7 +137,6 @@ body {
   color: whitesmoke;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   transform: scale(0.95);
-  /* transition: transform 0.3s ease; */
   cursor: pointer;
 }
 
@@ -146,8 +181,25 @@ body {
 }
 
 .draw-para {
-  margin-top: 30px;
+  margin: 20px 0 45px;
   text-align: center;
   font-family: "videotype";
   font-size: 25px;
+}
+
+.analysis {
+  white-space: pre-line;
+  text-align: center;
+  font-family: "videotype";
+  font-size: 25px;
+}
+
+.dark-theme {
+  background-color: #2c2c2c;
+  color: #ffffff;
+}
+
+.game-theme {
+  background-color: #585858;
+  color: #0d0d0d;
 }
