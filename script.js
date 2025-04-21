@@ -1,5 +1,3 @@
-// document.body.style["backgroundColor"] = "#0D0D0D";
-
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3);
   if (randomNumber === 0) {
@@ -23,7 +21,7 @@ function getHumanChoice(choice) {
 }
 
 let roundPlayed = 0;
-let maxRound = 5;
+let maxRound = 10;
 
 function handleClick(e) {
   if (roundPlayed >= maxRound) {
@@ -44,6 +42,11 @@ function handleClick(e) {
     console.log("Game over! Final scores:");
     console.log(`Human: ${humanScore}, Computer: ${computerScore}`);
     showScore();
+    roundAnalysis.textContent = "";
+
+    /* This is used in order to make sure the rounds are completed
+    before displayWinner function is called.
+  */
     setTimeout(() => {
       displayWinner();
     }, 100);
@@ -63,7 +66,6 @@ let computerScorePara = document.createElement("p");
 
 humanScorePara.classList.toggle("human");
 computerScorePara.classList.toggle("computer");
-// console.log(humanScorePara.classList);
 
 const score = document.querySelector(".score");
 score.appendChild(humanScorePara);
@@ -71,14 +73,45 @@ score.appendChild(computerScorePara);
 
 const drawPara = document.createElement("p");
 drawPara.classList.toggle("draw-para");
+
+const roundAnalysis = document.createElement("p");
+roundAnalysis.classList.toggle("analysis");
+
 const container = document.querySelector(".container");
 container.appendChild(drawPara);
+container.appendChild(roundAnalysis);
+
+const lobbyContainer = document.querySelector(".lobby-container");
+
+// To set document.body to dark background in CSS
+const doc = document.body;
+function setDarkTheme() {
+  doc.classList.add("dark-theme");
+}
+
+// To set document.body to grey background in CSS
+function setGameTheme() {
+  doc.classList.remove("dark-theme");
+  doc.classList.add("game-theme");
+}
+
+function lobbyPage() {
+  setDarkTheme();
+  const playButton = document.querySelector(".play");
+  playButton.addEventListener("click", () => {
+    lobbyContainer.style.display = "none";
+    container.style.display = "block";
+    setGameTheme();
+  });
+}
+
+lobbyPage();
 
 function updateScore() {
   humanScorePara.textContent = humanScore;
   computerScorePara.textContent = computerScore;
 }
-//REMEMBER IM TRYING TO MAKE THE DRAWPAPRA DISAPPEAR AFTER IT HAS RUN
+
 function announceDraw() {
   drawPara.textContent = "It's a draw!  Choose again.";
 }
@@ -103,6 +136,8 @@ function playRound(humanChoice, computerChoice) {
     console.log(`Your OPP chose ${computerChoice}`);
     console.log(`You Chose ${humanChoice}`);
     console.log("It's a DRAW FOR THIS ROUND!");
+    roundAnalysis.textContent = `Your OPP chose ${computerChoice}\n
+    You Chose ${humanChoice}`;
     removeDrawPara();
     announceDraw();
     return "DRAW";
@@ -114,6 +149,8 @@ function playRound(humanChoice, computerChoice) {
     console.log(`Your OPP chose ${computerChoice}`);
     console.log(`You Chose ${humanChoice}`);
     console.log("YOU LOST THE ROUND!");
+    roundAnalysis.textContent = `Your OPP chose ${computerChoice}\n
+    You Chose ${humanChoice}\n\nYOU LOST THE ROUND!`;
     removeDrawPara();
     updateComputerScore();
     return "COMPUTER";
@@ -121,6 +158,9 @@ function playRound(humanChoice, computerChoice) {
     console.log(`Your OPP chose ${computerChoice}`);
     console.log(`You Chose ${humanChoice}`);
     console.log("YOU WON THE ROUND!");
+    roundAnalysis.textContent = `Your OPP chose ${computerChoice}\n
+    You Chose ${humanChoice}\n\nYOU WON THE ROUND!`;
+
     removeDrawPara();
     updateHumanScore();
     return "HUMAN";
@@ -143,9 +183,10 @@ function showTotalScore() {
 
 function displayWinner() {
   container.style.display = "none";
-  // document.body.textContent = "";
-  // document.body.style["backgroundColor"] = "#0D0D0D";
-  // document.body.style["color"] = "whitesmoke";
+
+  // Remember, To set dark-theme as priority in CSS, class "game-theme" is removed
+  doc.classList.remove("game-theme");
+  setDarkTheme();
   const resultDivContainer = document.createElement("div");
   resultDivContainer.classList.toggle("final-result-container");
   document.body.appendChild(resultDivContainer);
@@ -155,7 +196,7 @@ function displayWinner() {
 
   let message = "";
   if (computerScore > humanScore) {
-    message = "OH NO!, YOU LOST UNFORTUNATELY, YOU HAVE TO GO HARDER";
+    message = "YOU LOST! UNFORTUNATELY, YOU HAVE TO GO HARDER";
   } else if (humanScore > computerScore) {
     message = "CONGRATULATIONS! YOU WON";
   } else {
@@ -185,8 +226,8 @@ function resetGame() {
   const resultDivContainer = document.querySelector(".final-result-container");
 
   if (resultDivContainer) {
-    // resultDivContainer.style.display = "none";
     resultDivContainer.remove();
     container.style.display = "block";
+    setGameTheme();
   }
 }
