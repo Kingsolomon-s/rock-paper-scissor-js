@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
   font-family: "videotype";
   src: url("./videotype.otf") format("opentype");
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -96,13 +96,12 @@ body {
   text-align: center;
 }
 
-.human,
 .computer {
-  flex: 1;
+  margin-left: 330px;
 }
 
 .human {
-  margin-right: 50px;
+  margin-left: 70px;
 }
 
 .drawPara {
