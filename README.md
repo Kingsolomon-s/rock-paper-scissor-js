@@ -6,17 +6,19 @@ This is Rock, Paper, Scissors project for The Odin Project, built using JavaScri
 📌 Features
 ✅ Play against the computer 🤖
 ✅ Randomized computer choices 🎲
-✅ Console-based game (for now) 🖥️
+✅ UI based game
 ✅ Keeps track of wins/losses 🏆
 
 🛠️ Technologies Used
-JavaScript (Game logic) for now
-HTML & CSS (To be added later for UI)
+JavaScript (Game logic and Interactive Functionality)
+HTML & CSS (for UI)
 How to Play
-1️ Open the browser console (for now, as per the project instructions)
-2️ The game prompts you to pick Rock, Paper, or Scissors
-3️ The computer randomly selects one
-4️ The winner is determined using the classic rules:
+1️ Click the "Play" button on the welcome screen to start
+2️ Choose Rock (R), Paper (P), or Scissors (S) by clicking the corresponding button
+3️ The computer will randomly make its choice
+4️ Play continues for 10 rounds, with the final winner displayed at the end
+5️ Click "Play Again" after the game ends to start a new match
+6 The winner is determined using the classic rules:
 
 Rock 🪨 beats Scissors ✂️
 Scissors ✂️ beats Paper 📄
@@ -24,7 +26,6 @@ Paper 📄 beats Rock 🪨
 5️⃣ Play again and try to beat the computer!
 
 Future Improvements
-Add a UI for better interaction
 Add sound effects and animations
 
 Author:
